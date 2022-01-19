@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const botn7 = document.getElementById('casilla7');
     const botn8 = document.getElementById('casilla8');
     const botn9 = document.getElementById('casilla9');
-    
+    let valorPosiciones = [0,0,0,0,0,0,0,0,0]
+    const reiniciar = document.getElementById('reinicio')
     const turno = document.getElementById('turno');
     botn1.onclick = cambio;
     botn2.onclick = cambio;
@@ -19,7 +20,9 @@ document.addEventListener('DOMContentLoaded', function () {
     botn7.onclick = cambio;
     botn8.onclick = cambio;
     botn9.onclick = cambio;
-    
+    reiniciar.onclick = reiniciarGame;
+
+
     function cambio() {
         let juagdor = turno.textContent;
         
@@ -27,17 +30,28 @@ document.addEventListener('DOMContentLoaded', function () {
             const imga = this.childNodes;
             document.getElementById(imga[0].id).setAttribute('style','visibility: visible;');
             document.getElementById(imga[0].id).setAttribute('src','Img/borrar.png');
-            console.log(imga[0].id);
+            
             this.disabled = true;
             turno.textContent = '2';
         } else {
             const imga = this.childNodes;
             document.getElementById(imga[0].id).setAttribute('style','visibility: visible;');
             document.getElementById(imga[0].id).setAttribute('src','Img/o.png');
-            console.log(imga[0].id);
+            
             this.disabled = true;
             turno.textContent = '1';
         }
         
+    }
+    function reiniciarGame() {
+        const datos = document.getElementsByClassName('botongeneral')
+        
+        for (let index = 0; index < datos.length; index++) {
+            const element = datos[index];
+            const imga = element.childNodes;
+            document.getElementById(imga[0].id).setAttribute('style','visibility: hidden;');
+            document.getElementById(imga[0].id).setAttribute('src','');
+            element.disabled = false;
+        }
     }
 });
