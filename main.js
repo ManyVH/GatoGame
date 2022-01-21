@@ -50,14 +50,14 @@ document.addEventListener('DOMContentLoaded', function () {
         if (ganoDia()===true || ganoHorizo()===true || ganoLateral()===true) {
             if (ganador==='x') {
                 Swal.fire(
-                    'Gano el Jugador 2',
+                    'Gano el Jugador 1',
                     'Presiona el boton para volver a jugar',
                     'success'
                   )
                 reiniciarGame()
             } else {
                 Swal.fire(
-                    'Gano el Jugador 1',
+                    'Gano el Jugador 2',
                     'Presiona el boton para volver a jugar',
                     'success'
                   )
